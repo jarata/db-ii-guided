@@ -13,7 +13,13 @@ const db = knex(knexConfig);
 
 router.get('/', (req, res) => {
   // get the roles from the database
-  res.send('Write code to retrieve all roles');
+  db('roles')
+      .then(roles => {
+        res.status(200).json(roles)
+      })
+      .catch(err => {
+        res.status(500).json(err)
+      })
 });
 
 router.get('/:id', (req, res) => {
