@@ -9,6 +9,8 @@ const knexConfig = {
   }
 };
 
+const db = knex(knexConfig);
+
 router.get('/', (req, res) => {
   // get the roles from the database
   res.send('Write code to retrieve all roles');
